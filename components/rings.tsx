@@ -3,8 +3,8 @@ import { useEffect, useRef } from "react";
 
 
 export default function RadiatingRings() {
-  const NUM_RINGS = 50;
-  const NUM_PTS = 300;  // num of pts each ring is made of
+  const NUM_RINGS = 25;
+  const NUM_PTS = 50;  // num of pts each ring is made of
   const ANIM_SPEED = 0.001  // speed of animation
   
   const offsets = { // generate random phase offsets once per mount

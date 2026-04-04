@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <>
       <section>
-        <p>(wanna-be) SwE, DevOps</p>
-        <p>{greeting}</p>
+        <p>Software Engineer, DevOps</p>
+        <p id="splash">{greeting}</p>
       </section>
 
       <div style={{ display: "flex", gap: "5%" }}>

@@ -19,12 +19,18 @@ h3 {
 nav {
     display: flex;
     flex-direction: column;
+    gap: 1%;
 }
 
 .article-item {
   display: grid;
   padding-left: 1%;
   grid-template-columns: auto auto;
+}
+
+.article-item h2 {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .bg-wrapper {
@@ -34,6 +40,7 @@ nav {
 }
 
 .page-content {
+  overflow: hidden;
   position: relative;
   color: white;
   border-radius: 3%;
@@ -48,9 +55,12 @@ nav {
 
 a {
   font-family: monospace;
-  font-size: x-large;
   color: deeppink;
   text-decoration: none;
+}
+
+a.bigger {
+  font-size: x-large;
 }
 
 a:hover {
@@ -61,4 +71,26 @@ a:hover {
 
 a:active {
   color: white;
+}
+
+#splash {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: large;
+  font-weight: 900;
+  color: gold;
+  text-shadow: 2px 2px 0px #3F3F00;
+  animation: boing 0.4s ease-in-out infinite alternate;
+  cursor: default;
+  user-select: none;
+  transform-origin: left center;
+  display: inline-block;
+}
+
+@keyframes boing {
+  0% {
+  transform: scale(1);
+  }
+  100% {
+    transform: scale(1.09);
+  } 
 }
