@@ -1,6 +1,6 @@
 [
     {"url": "/projects", "label": "FOSS Projects"},
-    {"url": "/", "label": "Resume"},
+    {"url": "/resume", "label": "Resume"},
     {"url": "/", "label": "Contact me"},
     {"url": "/", "label": "Github"},
     {"url": "/", "label": "Linkedin"}
