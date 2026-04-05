@@ -38,6 +38,36 @@ services:
         - action: rebuild
           path: package.json
 
+  nextjs-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: my-website:dev
+    container_name: my-website-test
+    command:
+      [
+        "sh",
+        "-c",
+        "pnpm run test:run",
+      ]
+    profiles:
+      - tools
+
+  nextjs-lint:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: my-website:dev
+    container_name: my-website-lint
+    command:
+      [
+        "sh",
+        "-c",
+        "pnpm lint",
+      ]
+    profiles:
+      - tools
+
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
 # start the database before your application. The `db-data` volume persists the
