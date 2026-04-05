@@ -1,5 +1,7 @@
 # syntax=docker/dockerfile:1
 
+# dockerfiles are the blueprints for building images.
+
 ARG NODE_VERSION=25.7.0
 ARG PNPM_VERSION=10.32.1
 
