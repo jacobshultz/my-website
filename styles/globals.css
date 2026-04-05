@@ -1,5 +1,6 @@
 :root {
   background-color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 ::selection {
@@ -22,15 +23,20 @@ nav {
     gap: 1%;
 }
 
+#articles-container {
+  flex: 1;
+}
+
 .article-item {
+  margin-top: 2%;
+  border: 1px solid gray;
   display: grid;
-  padding-left: 1%;
+  padding-left: 2%;
   grid-template-columns: auto auto;
 }
 
-.article-item h2 {
-  padding-top: 0;
-  padding-bottom: 0;
+.article-item span {
+  justify-self: end;
 }
 
 .bg-wrapper {
@@ -75,7 +81,7 @@ a:active {
 
 #splash {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: large;
+  font-size: x-large;
   font-weight: 900;
   color: gold;
   text-shadow: 2px 2px 0px #3F3F00;

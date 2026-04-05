@@ -1,5 +1,5 @@
 export default function Return() {
   return (
-    <a className="bigger" href="/">&lt;- Return</a>
+    <a className="bigger" style={{fontWeight: "bolder"}} href="/">&lt;- Return</a>
   );
 }

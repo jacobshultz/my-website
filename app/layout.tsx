@@ -19,6 +19,7 @@ export default function RootLayout({
           <h1>shultz.foo</h1>
           <div>{children}</div>
           <footer>
+            <hr />
             <p>&copy; jacob shultz {new Date().getFullYear()}</p>
           </footer>
         </main>

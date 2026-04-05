@@ -11,13 +11,14 @@ export default function Home() {
     <>
       <section>
         <p>Software Engineer, DevOps</p>
+        <p>jshultz.biz@outlook.com</p>
         <p id="splash">{greeting}</p>
       </section>
 
       <div style={{ display: "flex", gap: "5%" }}>
         <Nav links={linksData} />
 
-        <ul>
+        <ul id="articles-container">
           <h3>Articles</h3>
           {articles.map((article) => (
             <li key={article.filename} className="article-item">

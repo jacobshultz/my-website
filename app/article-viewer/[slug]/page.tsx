@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 import { notFound } from "next/navigation";
+import Return from "@/components/return"
 
 interface PageProps {
   params: { slug: string };
@@ -25,7 +26,7 @@ export default async function ArticleViewer({ params }: PageProps) {
 
   return (
     <article>
-      <a href="/">&lt;- Back</a>
+      <Return />
       <div>
         <h2>{data.title || "Untitled"}</h2>
         <span>{data.date?.toISOString().split("T")[0] || "Unknown date"}</span>
