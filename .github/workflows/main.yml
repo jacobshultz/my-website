@@ -1,7 +1,6 @@
-# CI/CD â Next.js Application with Docker
+# CI/CD - Next.js Application with Docker
 # Builds the app, runs tests in a container, and pushes the production image to Docker Hub.
-
-name: CI/CD â Next.js Application with Docker
+name: CI/CD - Next.js Application with Docker
 
 on:
   push:
