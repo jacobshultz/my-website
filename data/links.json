@@ -1,5 +1,5 @@
 [
-    {"url": "/projects", "newTab": false, "label": "Projects"},
+    {"url": "/projects", "newTab": false, "label": "Experience"},
     {"url": "/jacobshultz.pdf", "newTab": true, "label": "Resume"},
     {"url": "https://github.com/jacobshultz", "newTab": true, "label": "Github"},
     {"url": "https://www.linkedin.com/in/jshultz-dev/","newTab": true, "label": "Linkedin"}
