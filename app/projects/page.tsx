@@ -12,10 +12,11 @@ export default function Projects() {
             <p>These are just the most impressive ones (for now at least).</p>
             <ul>
                 {projects.map((project) => (
-                    <li className="project-item">
+                    <li key={project.filename} className="project-item">
                         <div className="topper">
                             <h2>{project.title}</h2>
                             <p>{project.internship}</p>
+                            <span>{project.dates}</span>
                         </div>
                     </li>
                 ))}
