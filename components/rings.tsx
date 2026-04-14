@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 
 
 export default function RadiatingRings() {
-  const NUM_RINGS = 25;
+  const NUM_RINGS = 5;
   const NUM_PTS = 50;  // num of pts each ring is made of
   const ANIM_SPEED = 0.001  // speed of animation
   
@@ -40,7 +40,7 @@ export default function RadiatingRings() {
       const centerX = width / 2, centerY = height / 2;
       const maxRadius = Math.sqrt(centerX * centerX + centerY * centerY);
 
-      ctx.fillStyle = "rbga(5, 5, 15, 0.15)";
+      ctx.fillStyle = "rbga(0, 0, 0, 0)";
       ctx.fillRect(0, 0, width, height); // throw a rectangle over previous frames to dim them
 
       for (let i = 0; i < NUM_RINGS; i++) {
@@ -94,7 +94,7 @@ export default function RadiatingRings() {
   }, []);
 
   return (
-    <div style={{ width: "100%", height: "100vh", background: "#05050f", overflow: "hidden" }}>
+    <div style={{ width: "100%", height: "100vh", background: "#000000", overflow: "hidden" }}>
       <canvas
         ref={canvasRef}
         style={{ display: "block", width: "100%", height: "100%" }}

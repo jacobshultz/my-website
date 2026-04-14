@@ -1,3 +1,4 @@
+import "../../../styles/article-viewer.css";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -27,7 +28,7 @@ export default async function ArticleViewer({ params }: PageProps) {
   return (
     <article>
       <Return />
-      <div>
+      <div id="topper">
         <h2>{data.title || "Untitled"}</h2>
         <span>{data.date?.toISOString().split("T")[0] || "Unknown date"}</span>
       </div>
