@@ -7,16 +7,7 @@
   justify-self: end;
 }
 
-pre, code {
-  font-family: 'Fira Code', monospace;
-  background-color: #131313;
-  color: #ffffff;
-  border-radius: 4px;
-}
-
-blockquote {
-  margin: 1em 0;
-  padding: 0.5em 1em;
-  border-left: 4px solid #003355;
-  font-style: italic;
+article {
+  border: 1px solid gray;
+  padding: 2%;
 }

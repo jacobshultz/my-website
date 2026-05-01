@@ -1,0 +1,46 @@
+.topper {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+}
+
+.topper span {
+    justify-self: end;
+}
+
+.topper h2 {
+    margin: 0%;
+}
+
+.repo {
+    font-size: larger;
+}
+
+.topper .org {
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.skills {
+    font-weight: bold;
+    font-family: monospace;
+    font-size: large;
+}
+
+#project-list {
+    list-style: none;
+    padding-left: 0%;
+}
+
+.project-item details summary {
+    cursor: pointer;
+}
+
+.project-item {
+    border: 1px solid gray;
+    padding: 2%;
+}
+
+.project-item details {
+    padding-top: 2%;
+}

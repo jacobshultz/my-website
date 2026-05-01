@@ -1,15 +1,17 @@
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
+import { getMarkdownParts } from "./markdown";
 
 export interface Project {
   filename: string;
   title: string;
-  internship: string | null;
+  organization: string | null;
   dates: string;
   skills: string | null;
   summary: string;
-  order: number
+  order: number;
+  repo: string | null;
+  content: string;
 }
 
 /**
@@ -22,18 +24,18 @@ export function getAllProjects(): Project[] {
   return filenames
     .filter((f) => f.endsWith(".md"))
     .map((filename) => {
-      const { data } = matter(
-        fs.readFileSync(path.join(projectsDir, filename), "utf8")
-      );
+      const { data, content } = getMarkdownParts(path.join(process.cwd(), "projects", filename))
       return {
         filename,
         title: data.title || "Untitled",
-        internship: data.internship,
+        organization: data.organization,
         dates: data.dates || "January 1970 to January 1970",
         skills: data.skills,
         summary: data.summary || "No summary provided.",
-        order: data.order || 999
+        order: data.order ?? 999,
+        repo: data.repo,
+        content: content
       };
     })
-    .sort((a, b) => (a.order < b.order ? 1 : -1));
+    .sort((a, b) => (a.order > b.order ? 1 : -1));
 }

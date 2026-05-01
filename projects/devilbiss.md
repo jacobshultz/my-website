@@ -1,11 +1,11 @@
 ---
 title: Unified Sound Tester
 
-internship: Drive DeVilbiss Healthcare
+organization: Drive DeVilbiss Healthcare
 
 dates: May 2025 to August 2025
 
-skills: .NET, MS SQL Server, Git/GitHub, Atlassian, MS Access, Winforms, Software Testing, Documentation
+skills: .NET, MS SQL Server, Git/GitHub, Jira, MS Access, Winforms, Software Testing, Documentation
 
 summary: The Unified Sound Tester is an application used daily on the production line to verify whether each unit meets acceptable volume standards during operation. Prior to this project, the sound-testing process relied on three separate applications. The goal was to consolidate them into a single, streamlined tool to increase production efficiency, extend long-term maintainability, and improve scalability.
 
