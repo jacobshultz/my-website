@@ -1,6 +1,4 @@
-# CI/CD - Next.js Application with Docker
-# Builds the app, runs tests in a container, and pushes the production image to Docker Hub.
-name: CI/CD - Next.js Application with Docker
+name: Build, Test, Push, and Deploy
 
 on:
   push:
@@ -8,10 +6,11 @@ on:
   pull_request:
     branches: [main]
     types: [opened, synchronize, reopened]
-
+  workflow_dispatch:
+    
 jobs:
-  build-test-push:
-    name: Build, Test and Push Docker Image
+  build-test-push-deploy:
+    name: Build, Test Push and Deploy Docker Image
     runs-on: ubuntu-latest
 
     steps:
@@ -96,3 +95,15 @@ jobs:
             ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKERHUB_PROJECT_NAME }}:${{ steps.meta.outputs.SHORT_SHA }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
+
+      # 10. Restart systemd service
+      - name: Stop systemd service
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          fingerprint: ${{ secrets.VPS_KNOWN_HOSTS }}
+          port: 22
+          script: |
+            sudo systemctl restart my-website.service
