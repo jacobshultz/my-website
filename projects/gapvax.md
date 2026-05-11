@@ -1,13 +1,13 @@
 ---
 title: Manual Generator
 
-internship: GAPVAX
+organization: GAPVAX
 
 dates: June 2024 to November 2024
 
 skills: Visual Basic, UI/UX design, Requirement gathering, Rapid prototyping, Backend design, Creative problem solving, Microsoft Excel scripting
 
-summary: The Section 4 Template Generator—or "Manual Generator" as everyone else calls it—is a tool I built to streamline the creation of owner's manuals for GapVax trucks. I used OLE automation to control an instance of Adobe Acrobat within Microsoft Excel, using Excel workbooks to handle user input and Acrobat to edit and save PDFs.
+summary: The Section 4 Template Generator--or "Manual Generator" as everyone else calls it--is a tool I built to streamline the creation of owner's manuals for GapVax trucks. I used OLE automation to control an instance of Adobe Acrobat within Microsoft Excel, using Excel workbooks to handle user input and Acrobat to edit and save PDFs.
 ---
 
 GapVax designs and builds highly customized vacuum trucks, and each one ships with a detailed owner's manual. In them, section 4 "Operation" covers how to use every piece of equipment on the truck, but because no two trucks are exactly alike, each truck requires a unique section 4 that needs to be created by hand.
@@ -22,4 +22,4 @@ I split the app into multiple front ends and a single back end. Each front end i
 
 Adding new truck models requires no coding. Just duplicate an existing front end, configure it for the new model, and it works. Content options can be added directly in the workbook by inserting rows or using the wizard I built.
 
-The biggest challenge was the scripting language itself. Visual Basic for Applications technically supports classes but lacks inheritance, polymorphism, and proper exception handling (yes, I had to use OnError GoTo). Despite that, I implemented the MVP pattern and a clean front/back end split. This was my first industry project — freshman summer — so following sound engineering principles took lots of research. I came away with a genuine appreciation for why OOP exists, plus practical experience in requirements gathering, designing for non-technical users, backend architecture, and, in general, I learned how to read documentation and forums to find solutions to my problems.
+The biggest challenge was the scripting language itself. Visual Basic for Applications technically supports classes but lacks inheritance, polymorphism, and proper exception handling (yes, I had to use OnError GoTo). Despite that, I implemented the MVP pattern and a clean front/back end split. This was my first industry project--freshman summer--so following sound engineering principles took lots of research. I came away with a genuine appreciation for why OOP exists, plus practical experience in requirements gathering, designing for non-technical users, backend architecture, and, in general, I learned how to read documentation and forums to find solutions to my problems.

@@ -18,9 +18,9 @@ h3 {
 }
 
 nav {
-    display: flex;
-    flex-direction: column;
-    gap: 1%;
+  display: flex;
+  flex-direction: column;
+  gap: 1%;
 }
 
 #articles-container {
@@ -70,7 +70,7 @@ a.bigger {
 }
 
 a:hover {
-  color: crimson;
+  color: hotpink;
   font-weight: bolder;
   text-decoration: underline;
 }
