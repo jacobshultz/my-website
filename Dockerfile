@@ -11,6 +11,8 @@ ARG PNPM_VERSION=10.32.1
 
 FROM node:${NODE_VERSION}-alpine as deps
 
+ARG PNPM_VERSION
+
 WORKDIR /app
 
 # Install pnpm
@@ -32,6 +34,8 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 # ====================================================
 
 FROM node:${NODE_VERSION}-alpine as builder
+
+ARG PNPM_VERSION
 
 WORKDIR /app
 

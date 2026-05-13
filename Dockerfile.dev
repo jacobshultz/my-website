@@ -6,6 +6,8 @@ ARG PNPM_VERSION=10.32.1
 
 FROM node:${NODE_VERSION} AS dev
 
+ARG PNPM_VERSION
+
 WORKDIR /app
 
 RUN --mount=type=cache,target=/root/.npm \
