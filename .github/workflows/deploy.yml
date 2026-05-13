@@ -30,6 +30,15 @@ jobs:
           restore-keys: ${{ runner.os }}-buildx-
 
 
+        # is this actually necessary?
+      - name: Cache pnpm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/pnpm/store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-
+
+
       - name: Extract metadata
         id: meta
         run: |
