@@ -100,5 +100,6 @@ jobs:
           password: ${{ secrets.VPS_PASSWORD }}
           fingerprint: ${{ secrets.VPS_KNOWN_HOST }}
           port: 22
+          debug: true
           script: |
             sudo systemctl restart my-website.service
