@@ -92,6 +92,12 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
 
 
+      - name: 4000 commits later
+        run: |
+          ssh-keyscan -t ed25519,rsa,ecdsa ${{ secrets.HOST }} 2>&1 | tee /tmp/keys.txt
+          echo "---fingerprints---"
+          ssh-keygen -lf /tmp/keys.txt
+
       - name: Restart systemd service
         uses: appleboy/ssh-action@v1
         with:
