@@ -11,6 +11,8 @@ ARG PNPM_VERSION=10.32.1
 
 FROM node:${NODE_VERSION}-alpine as deps
 
+ARG PNPM_VERSION
+
 WORKDIR /app
 
 # Install pnpm
@@ -23,6 +25,7 @@ RUN --mount=type=cache,target=/root/.npm \
 # into this layer.
 RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
+    --mount=type=bind,source=pnpm-workspace.yaml,target=pnpm-workspace.yaml \
     --mount=type=cache,target=/root/.local/share/pnpm/store \ 
     pnpm install --frozen-lockfile
 
@@ -31,6 +34,8 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 # ====================================================
 
 FROM node:${NODE_VERSION}-alpine as builder
+
+ARG PNPM_VERSION
 
 WORKDIR /app
 

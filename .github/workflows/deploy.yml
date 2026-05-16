@@ -10,21 +10,18 @@ on:
     
 jobs:
   build-test-push-deploy:
-    name: Build, Test Push and Deploy Docker Image
+    name: Build, Test, Push and Deploy Docker Image
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout source code
       - name: Checkout source code
         uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
 
-      # 2. Set up Docker Buildx
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
 
-      # 3. Cache Docker layers
+
       - name: Cache Docker layers
         uses: actions/cache@v5
         with:
@@ -32,7 +29,8 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: ${{ runner.os }}-buildx-
 
-      # 4. Cache pnpm dependencies
+
+        # is this actually necessary?
       - name: Cache pnpm dependencies
         uses: actions/cache@v4
         with:
@@ -40,14 +38,14 @@ jobs:
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: ${{ runner.os }}-pnpm-
 
-      # 5. Extract metadata
+
       - name: Extract metadata
         id: meta
         run: |
           echo "REPO_NAME=${GITHUB_REPOSITORY##*/}" >> "$GITHUB_OUTPUT"
           echo "SHORT_SHA=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
 
-      # 6. Build dev Docker image (for running tests)
+      
       - name: Build Docker image for tests
         uses: docker/build-push-action@v6
         with:
@@ -58,8 +56,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
 
-      # 7. Run Vitest tests inside the container
-      # Use same package-manager detection as Dockerfile (no corepack at runtime; node user can't write to /usr/local/bin)
+      
       - name: Run tests
         run: |
           docker run --rm \
@@ -73,17 +70,15 @@ jobs:
           NODE_ENV: test
         timeout-minutes: 10
 
-      # 8. Log in to Docker Hub (only needed for push)
+      
       - name: Log in to Docker Hub
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # 9. Build and push production image (only on push to main)
+
       - name: Build and push production image
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -96,14 +91,15 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
 
-      # 10. Restart systemd service
-      - name: Stop systemd service
+          
+      - name: Restart systemd service
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PASSWORD }}
-          fingerprint: ${{ secrets.VPS_KNOWN_HOSTS }}
+          fingerprint: ${{ secrets.VPS_KNOWN_HOST }}
           port: 22
+          debug: true
           script: |
             sudo systemctl restart my-website.service

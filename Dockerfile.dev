@@ -6,12 +6,14 @@ ARG PNPM_VERSION=10.32.1
 
 FROM node:${NODE_VERSION} AS dev
 
+ARG PNPM_VERSION
+
 WORKDIR /app
 
 RUN --mount=type=cache,target=/root/.npm \
     npm install -g pnpm@${PNPM_VERSION}
 
-COPY package.json pnpm-lock.yaml .npmrc* ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc* ./
 
 RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
     pnpm install --frozen-lockfile
