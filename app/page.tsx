@@ -5,14 +5,13 @@ import linksData from "@/data/links.json";
 
 export default function Home() {
   const articles = getAllArticles();
-  const greeting = rollGreeting();
 
   return (
     <>
       <section>
         <p>Software Engineer, DevOps</p>
         <p>jshultz.biz@outlook.com</p>
-        <p id="splash">{greeting}</p>
+        <p id="splash">{rollGreeting()}</p>
       </section>
 
       <div style={{ display: "flex", gap: "5%" }}>

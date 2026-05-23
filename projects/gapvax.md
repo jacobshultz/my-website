@@ -1,7 +1,7 @@
 ---
-title: Manual Generator
+title: GAPVAX Internship
 
-organization: GAPVAX
+position: Engineering Intern
 
 dates: June 2024 to November 2024
 

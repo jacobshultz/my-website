@@ -12,6 +12,8 @@ summary: My friends and I built a browser-based Five Nights at Freddy's fan game
 order: 0
 
 repo: https://github.com/jacobshultz/five-nights-at-blackington
+
+youtube: https://www.youtube.com/watch?v=Y1gxyAwpP-0&t=190s
 ---
 
 The server is written in TypeScript and connects to MongoDB, providing user accounts, JWT-based authentication and authorization, and a REST HTTP API. 
@@ -20,4 +22,4 @@ The Node.js application serves the game directly to the browser, giving players 
 
 At one point the project was deployed behind an Nginx reverse proxy with TLS encryption.
 
-The really interesting part of the project is that we used no front-end libraries. Poor Danny sculpted a rendering engine just to make the game work.
+The really interesting part of the project is that we used no front-end libraries. Poor Danny sculpted a pseudo-rendering engine from scratch in TypeScript just to make the game work. I was more involved with architecting the game engine itself and the server components.
