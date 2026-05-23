@@ -1,6 +1,6 @@
 import Nav from "@/components/nav";
 import { getAllArticles } from "@/lib/article";
-import { rollGreeting } from "@/lib/greeting";
+import Splash from "@/components/splash";
 import linksData from "@/data/links.json";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
       <section>
         <p>Software Engineer, DevOps</p>
         <p>jshultz.biz@outlook.com</p>
-        <p id="splash">{rollGreeting()}</p>
+        <Splash/>
       </section>
 
       <div style={{ display: "flex", gap: "5%" }}>
