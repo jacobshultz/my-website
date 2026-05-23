@@ -9,7 +9,7 @@ export function rollGreeting(): string {
   const day = today.getDate();
 
   if (month === 6 && day === 3) {  
-    return "Happy birthday to my lovely Lauren!!!"
+    return "Happy birthday to my lovely Lauren!!! <3"
   }
 
   return greetingsData[Math.floor(Math.random() * greetingsData.length)];

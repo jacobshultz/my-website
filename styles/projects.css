@@ -12,8 +12,11 @@
     margin: 0%;
 }
 
-.repo {
+.link-container {
     font-size: larger;
+    display: flex;
+    flex-direction: column;
+    justify-self: end;
 }
 
 .topper .org {

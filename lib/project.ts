@@ -6,11 +6,13 @@ export interface Project {
   filename: string;
   title: string;
   organization: string | null;
+  position: string | null;
   dates: string;
   skills: string | null;
   summary: string;
   order: number;
   repo: string | null;
+  youtube: string | null;
   content: string;
 }
 
@@ -29,11 +31,13 @@ export function getAllProjects(): Project[] {
         filename,
         title: data.title || "Untitled",
         organization: data.organization,
+        position: data.position,
         dates: data.dates || "January 1970 to January 1970",
         skills: data.skills,
         summary: data.summary || "No summary provided.",
         order: data.order ?? 999,
         repo: data.repo,
+        youtube: data.youtube,
         content: content
       };
     })

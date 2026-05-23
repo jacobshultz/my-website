@@ -11,15 +11,23 @@ export default function Projects() {
         <>
             <Return/>
             <h1 style={{textAlign: "center"}}>Big Projects</h1>
-            <p>Some of my best work. If you want to see more of my work, including that which is in-progress, please visit my <a className="bigger" href="https://github.com/jacobshultz" target="_blank">github</a>.</p>
+            <p>Some of my best work. If you want to see more of my work, please visit my <a className="bigger" href="https://github.com/jacobshultz" target="_blank">github</a>.</p>
             <ul id="project-list">
                 {projects.map((project) => (
                     <li key={project.filename} className="project-item">
                         <div className="topper">
                             <h2>{project.title}</h2>
                             <span>{project.dates}</span>
-                            {project.organization && <p className="org">For {project.organization}</p>}
-                            {project.repo && <span className="repo"><a href={project.repo}>GitHub Repository</a></span>}
+                            {project.organization ? 
+                                <p className="org">For {project.organization}</p> 
+                            : project.position ? 
+                                <p className="org">{project.position}</p> 
+                            : 
+                                <div></div>}
+                            <div className="link-container">
+                                {project.repo && <span><a href={project.repo}>GitHub</a></span>}
+                                {project.youtube && <span><a href={project.youtube}>YouTube</a></span>}
+                            </div>
                         </div>
                         <details>
                             <summary>{project.summary}</summary>
