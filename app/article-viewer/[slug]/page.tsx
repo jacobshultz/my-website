@@ -20,7 +20,7 @@ export default async function ArticleViewer({ params }: PageProps) {
     <Return />
     <article>
       <div id="topper">
-        <h2>{data.title || "Untitled"}</h2>
+        <h1>{data.title || "Untitled"}</h1>
         <span>{data.date?.toISOString().split("T")[0] || "Unknown date"}</span>
       </div>
       <MarkdownContentToHTML content={content} />

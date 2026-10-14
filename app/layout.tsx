@@ -16,7 +16,6 @@ export default function RootLayout({
           <RadiatingRings />
         </div>
         <main className="page-content">
-          <h1>shultz.foo</h1>
           <div>{children}</div>
           <footer>
             <hr />
